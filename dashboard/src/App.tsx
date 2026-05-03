@@ -12,7 +12,6 @@ interface ReceiptData {
 
 function App() {
   const [data, setData] = useState<ReceiptData[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,21 +19,19 @@ function App() {
         const response = await axios.get('http://localhost:3000/api/receipts');
         // If API is empty, show some mock data for demo
         const displayData = response.data.length > 0 ? response.data : [
-          { store_name: '7-Eleven', total_amount: 120, date: '2024-05-01' },
-          { store_name: 'Starbucks', total_amount: 350, date: '2024-05-02' },
-          { store_name: 'Tesco', total_amount: 890, date: '2024-05-03' },
+          { id: 1, store_name: '7-Eleven', total_amount: 120, date: '2024-05-01' },
+          { id: 2, store_name: 'Starbucks', total_amount: 350, date: '2024-05-02' },
+          { id: 3, store_name: 'Tesco', total_amount: 890, date: '2024-05-03' },
         ];
         setData(displayData);
       } catch (err) {
         console.error("Error fetching data", err);
         // Fallback mock data
         setData([
-          { store_name: '7-Eleven', total_amount: 120, date: '2024-05-01' },
-          { store_name: 'Starbucks', total_amount: 350, date: '2024-05-02' },
-          { store_name: 'Tesco', total_amount: 890, date: '2024-05-03' },
+          { id: 1, store_name: '7-Eleven', total_amount: 120, date: '2024-05-01' },
+          { id: 2, store_name: 'Starbucks', total_amount: 350, date: '2024-05-02' },
+          { id: 3, store_name: 'Tesco', total_amount: 890, date: '2024-05-03' },
         ]);
-      } finally {
-        setLoading(false);
       }
     };
     fetchData();
