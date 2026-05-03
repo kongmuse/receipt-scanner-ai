@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS receipts (
+    id SERIAL PRIMARY KEY,
+    store_name VARCHAR(255),
+    total_amount DECIMAL(10, 2),
+    date DATE DEFAULT CURRENT_DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

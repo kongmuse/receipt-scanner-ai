@@ -1,0 +1,17 @@
+# Node
+node_modules/
+dist/
+.env
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+
+# Docker
+db_data/
+
+# OS
+.DS_Store
